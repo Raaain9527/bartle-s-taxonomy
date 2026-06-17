@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>游戏人格测试 — 你是什么玩家？</title>
+  <meta name="description" content="24题，3分钟，测出你的12种游戏人格之一。SBTI式荒诞诊断，不正经，但很准。">
+  <meta property="og:title" content="游戏人格测试 — 你是什么玩家？">
+  <meta property="og:description" content="24题，3分钟，测出你的12种游戏人格之一。SBTI式荒诞诊断，不正经，但很准。">
+  <meta property="og:image" content="assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ============================================================
+       Home Page — Clinical Intake Form
+       ============================================================ */
+
+    /* --- Stamp / Chop --- */
+    .home__stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      padding: var(--space-sm) var(--space-md);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 400ms var(--ease-standard) 100ms forwards;
+      /* Simulate uneven ink stamp */
+      position: relative;
+    }
+    .home__stamp::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 0.5px solid var(--color-accent);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    /* --- Hero --- */
+    .home__hero {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: var(--space-3xl);
+      opacity: 0;
+      animation: fadeIn 500ms var(--ease-standard) 250ms forwards;
+    }
+
+    .home__hero-em {
+      display: block;
+      color: var(--color-accent);
+    }
+
+    /* --- Subtitle --- */
+    .home__subtitle {
+      margin-top: var(--space-lg);
+      font-size: var(--text-sm);
+      color: var(--color-text-dim);
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeIn 400ms var(--ease-standard) 500ms forwards;
+    }
+
+    .home__subtitle-tagline {
+      display: block;
+      margin-top: var(--space-xs);
+      font-family: var(--font-hand);
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+    }
+
+    /* --- CTA wrapper --- */
+    .home__cta-wrap {
+      margin-top: var(--space-2xl);
+      opacity: 0;
+      animation: fadeIn 400ms var(--ease-standard) 650ms forwards;
+    }
+
+    /* --- Xiaohei wrapper --- */
+    .home__mascot {
+      margin-top: var(--space-3xl);
+      opacity: 0;
+      animation: fadeIn 500ms var(--ease-standard) 900ms forwards;
+    }
+
+    .home__xiaohei {
+      display: block;
+      max-width: 200px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    /* --- Counter --- */
+    .home__counter {
+      margin-top: var(--space-xl);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-text-dim);
+      opacity: 0;
+      animation: fadeIn 400ms var(--ease-standard) 1050ms forwards;
+    }
+
+    .home__counter b {
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    /* --- Keyframes --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">🌙</button>
+
+  <!-- Home Page -->
+  <main class="page" id="page-home">
+    <div class="container text-center">
+
+      <!-- Diagnostic stamp -->
+      <div class="home__stamp">小黑诊断中心 · 心理评估表</div>
+
+      <!-- Hero headline — provocative, conversational -->
+      <h1 class="home__hero">
+        MBTI 过时了<br>
+        来看看你是什么<br>
+        <span class="home__hero-em">游戏人格吧</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="home__subtitle">
+        24 题 · 3 分钟 · 12 种诊断结果
+        <span class="home__subtitle-tagline">不正经，但很准。不准也不退钱。</span>
+      </p>
+
+      <!-- CTA -->
+      <div class="home__cta-wrap">
+        <a href="test.html" class="btn-cta">开始诊断</a>
+      </div>
+
+      <!-- Xiaohei mascot — IP reference image -->
+      <div class="home__mascot">
+        <img class="home__xiaohei" src="assets/images/xiaohei_ip_ref.png.jpeg" alt="小黑 — Ian Xiaohei IP">
+      </div>
+
+      <!-- Social proof -->
+      <p class="home__counter">
+        已有 <b>12,847</b> 人完成诊断
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Character IP based on Ian Xiaohei by <a href="https://github.com/helloianneo" target="_blank" rel="noopener">@helloianneo</a>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>诊断中… — 游戏人格测试</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ============================================================
+       Test Page — Clinical Diagnostic Flow
+       ============================================================ */
+
+    /* --- Progress bar: thicker, warm flow color --- */
+    .test__progress {
+      width: 100%;
+      height: 6px;
+      background: var(--color-border-subtle);
+    }
+
+    .test__progress-fill {
+      height: 100%;
+      background: var(--color-flow);
+      transition: width 500ms var(--ease-standard);
+    }
+
+    /* --- Header row: counter + Xiaohei observer --- */
+    .test__header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .test__counter {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-text-dim);
+    }
+
+    .test__observer {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .test__observer-img {
+      width: 32px;
+      height: 24px;
+      opacity: 0.6;
+    }
+
+    .test__observer-label {
+      font-family: var(--font-hand);
+      font-size: 10px;
+      color: var(--color-text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* --- Question stage --- */
+    .test__stage {
+      position: relative;
+      min-height: 360px;
+    }
+
+    .test__question-wrap {
+      transition: opacity 200ms var(--ease-standard),
+                  transform 250ms var(--ease-standard);
+    }
+
+    .test__question-wrap.exit {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+
+    .test__question-wrap.enter {
+      animation: slideIn 280ms var(--ease-standard) forwards;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .test__question {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      line-height: 1.4;
+      margin: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    /* --- Option cards with accent left-border key --- */
+    .test__options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      width: 100%;
+      padding: var(--space-lg);
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-card);
+      border: 1px solid var(--color-border-subtle);
+      border-left: 3px solid var(--color-border-subtle);
+      cursor: pointer;
+      transition: border-color var(--duration-normal) var(--ease-standard),
+                  background var(--duration-normal) var(--ease-standard),
+                  transform var(--duration-fast) var(--ease-standard);
+      user-select: none;
+    }
+
+    .opt:hover {
+      border-color: var(--color-text);
+      border-left-color: var(--color-text);
+    }
+
+    .opt:active {
+      transform: scale(0.985);
+    }
+
+    .opt.flash {
+      border-left-color: var(--color-accent);
+      background: var(--color-border-subtle);
+      transition: border-left-color 80ms var(--ease-standard),
+                  background 80ms var(--ease-standard);
+    }
+
+    .opt__key {
+      flex-shrink: 0;
+      width: 28px;
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text-dim);
+      padding-top: 1px;
+    }
+
+    .opt__text {
+      flex: 1;
+    }
+
+    /* --- Floating annotation --- */
+    .test__aside {
+      margin-top: var(--space-lg);
+      text-align: right;
+    }
+
+    .test__scribble {
+      display: inline-block;
+      font-family: var(--font-hand);
+      font-size: var(--text-xs);
+      color: var(--color-accent);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      transform: rotate(-2deg);
+    }
+
+    /* --- Disabled state --- */
+    .test__options.locked .opt {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">🌙</button>
+
+  <!-- Test Page -->
+  <main class="page" id="page-test">
+    <div class="container">
+
+      <!-- Progress bar -->
+      <div class="test__progress">
+        <div class="test__progress-fill" style="width: 0%;"></div>
+      </div>
+
+      <!-- Header row -->
+      <div class="test__header-row">
+        <span class="test__counter">1 / 24</span>
+        <div class="test__observer">
+          <span class="test__observer-label">— 监考中</span>
+          <img class="test__observer-img" src="assets/images/xiaohei_ip_ref.png.jpeg" alt="小黑监考">
+        </div>
+      </div>
+
+      <!-- Question stage -->
+      <div class="test__stage" id="questionStage">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Floating annotation -->
+      <div class="test__aside">
+        <span class="test__scribble">别想太多，第一直觉最准</span>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/test.js"></script>
+</body>
+</html>

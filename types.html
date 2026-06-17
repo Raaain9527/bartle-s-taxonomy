@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 种游戏人格一览</title>
+  <meta name="description" content="分奴、压力怪、乐子人、赛博驴、仓鼠、白金人、该溜子、考古学家、BUG启动器、游戏奶妈、挂机仙人、氪佬 — 12种游戏人格全览。">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .types-page__header {
+      text-align: center;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .home__hero-em {
+      display: block;
+      color: var(--color-accent);
+    }
+
+    .types-page__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--space-md);
+      width: 100%;
+    }
+
+    .type-cell {
+      padding: var(--space-lg);
+      background: var(--color-card);
+      border: 1px solid var(--color-border-subtle);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color var(--duration-normal) var(--ease-standard);
+    }
+
+    .type-cell:hover {
+      border-color: var(--color-accent);
+    }
+
+    .type-cell__img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      margin-bottom: var(--space-sm);
+    }
+
+    .type-cell__label {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+    }
+
+    .type-cell__oneliner {
+      font-size: var(--text-xs);
+      color: var(--color-text-dim);
+      margin-top: var(--space-sm);
+      line-height: 1.5;
+    }
+
+    .type-cell__rarity {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: 1px var(--space-xs);
+      margin-top: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">🌙</button>
+
+  <!-- Types Gallery -->
+  <main class="page" id="page-types">
+    <div class="container">
+
+      <div class="types-page__header">
+        <p class="annotation">— 小黑诊断中心 · 病案室 —</p>
+        <h1 class="home__hero" style="font-size: var(--text-2xl); margin-top: var(--space-lg); animation: none; opacity: 1;">
+          12 种<br><span class="home__hero-em">游戏人格</span>
+        </h1>
+        <p class="body-text mt-lg" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+          点击任一类型查看完整诊断书。不知道自己是什么？<a href="test.html" style="text-decoration: underline; text-underline-offset: 2px; color: var(--color-accent);">先做测试</a>。
+        </p>
+      </div>
+
+      <div class="types-page__grid" id="typesGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <p class="text-center mt-2xl">
+        <a href="index.html" class="text-dim" style="font-size: var(--text-xs); text-decoration: underline; text-underline-offset: 2px;">← 回到首页</a>
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Character IP based on Ian Xiaohei by <a href="https://github.com/helloianneo" target="_blank" rel="noopener">@helloianneo</a>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var RARITY_LABELS = { 'SSR': 'SSR', 'SR': 'SR', 'R': 'R' };
+
+    fetch('data/characters.json')
+      .then(function (r) { return r.json(); })
+      .then(function (chars) {
+        var grid = document.getElementById('typesGrid');
+        var html = '';
+        Object.values(chars).forEach(function (ch) {
+          if (ch.id === 'captain') return;  // hidden easter egg, only via hook
+          html +=
+            '<a href="result.html#' + ch.id + '" class="type-cell">' +
+            '<img class="type-cell__img" src="assets/images/' + ch.id + '.png.jpeg" alt="小黑 · ' + ch.label + '" loading="lazy">' +
+            '<div class="type-cell__label">' + ch.emoji + ' ' + ch.label + '</div>' +
+            '<div class="type-cell__oneliner">' + ch.oneLiner + '</div>' +
+            '<span class="type-cell__rarity">' + (RARITY_LABELS[ch.rarity] || '') + '</span>' +
+            '</a>';
+        });
+        grid.innerHTML = html;
+      })
+      .catch(function () {
+        document.getElementById('typesGrid').innerHTML =
+          '<p class="text-dim">数据加载失败，请刷新页面。</p>';
+      });
+  })();
+  </script>
+</body>
+</html>

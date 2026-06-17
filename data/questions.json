@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "totalQuestions": 24,
+    "optionsPerQuestion": 3,
+    "scorePerOption": 2,
+    "typeCount": 12,
+    "parallelBank": "eggy",
+    "types": [
+      { "id": "score_slave", "label": "分奴", "emoji": "🏆" },
+      { "id": "pressure_monster", "label": "压力怪", "emoji": "❓" },
+      { "id": "chaos_gremlin", "label": "乐子人", "emoji": "🎪" },
+      { "id": "cyber_donkey", "label": "赛博驴", "emoji": "🐴" },
+      { "id": "hamster", "label": "仓鼠", "emoji": "🐹" },
+      { "id": "platinum_hunter", "label": "白金人", "emoji": "🏅" },
+      { "id": "wanderer", "label": "该溜子", "emoji": "🗺️" },
+      { "id": "archaeologist", "label": "考古学家", "emoji": "📜" },
+      { "id": "bug_conjurer", "label": "BUG启动器", "emoji": "🐛" },
+      { "id": "game_nanny", "label": "游戏奶妈", "emoji": "🛡️" },
+      { "id": "afk_immortal", "label": "挂机仙人", "emoji": "🧘" },
+      { "id": "whale", "label": "氪佬", "emoji": "💎" }
+    ]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "text": "你的游戏主战场是？",
+      "options": [
+        { "key": "A", "text": "竞技对抗——LOL/Valorant/王者/和平精英，分就是命，不掉分不算玩", "scores": { "score_slave": 2 } },
+        { "key": "B", "text": "开放世界/RPG——塞尔达/原神/老头环/巫师，一个人泡在里面几百小时", "scores": { "wanderer": 2 } },
+        { "key": "C", "text": "派对休闲——蛋仔派对/糖豆人/Among Us，开心第一，输赢随意", "scores": { "chaos_gremlin": 2 }, "redirect": "eggy" }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "打开游戏，你的第一个操作是？",
+      "options": [
+        { "key": "A", "text": "检查每日任务/签到——漏一天比漏吃早餐还难受", "scores": { "cyber_donkey": 2 } },
+        { "key": "B", "text": "打开背包整理物资——每样东西都要在它该在的位置，虽然可能永远用不上", "scores": { "hamster": 2 } },
+        { "key": "C", "text": "先不开游戏。打开好友列表看看谁在线，逐个打招呼", "scores": { "afk_immortal": 2 } }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "游戏加载时，你一般在干嘛？",
+      "options": [
+        { "key": "A", "text": "刷手机看这关的奖杯/成就攻略，规划最优路线", "scores": { "platinum_hunter": 2 } },
+        { "key": "B", "text": "在脑内预演各种骚操作——虽然加载完可能第一个死", "scores": { "chaos_gremlin": 2 } },
+        { "key": "C", "text": "切出去看一眼地图App——这游戏的世界观设定参考了哪个真实地区？", "scores": { "wanderer": 2 } }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "你对'变强'的定义是？",
+      "options": [
+        { "key": "A", "text": "背包里每一件东西都有用（虽然999瓶药一瓶没喝过），安全感就是强度", "scores": { "hamster": 2 } },
+        { "key": "B", "text": "能精准指出队友的失误并给出'建设性意见'——他们可能觉得是嘴臭，但我知道这是爱", "scores": { "pressure_monster": 2 } },
+        { "key": "C", "text": "商城上新 → 点进去 → 付款 → 拥有了 → 我变强了（逻辑无懈可击）", "scores": { "whale": 2 } }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "游戏商城/商店对你来说是什么？",
+      "options": [
+        { "key": "A", "text": "衣帽间。今天穿什么比今天打什么重要一百倍", "scores": { "afk_immortal": 2 } },
+        { "key": "B", "text": "快乐源泉。看到'限定''绝版''首充双倍'三个词，手指会自动完成支付", "scores": { "whale": 2 } },
+        { "key": "C", "text": "工具箱。只买提升效率的——经验加成、背包扩容、自动拾取，其他免谈", "scores": { "cyber_donkey": 2 } }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "你的游戏设备/打机环境是？",
+      "options": [
+        { "key": "A", "text": "设备不重要，但背包格子数很重要。手机里200个不用的App就是我的游戏", "scores": { "hamster": 2 } },
+        { "key": "B", "text": "精确到帧的显示器和精确到克的鼠标——不是装备党，是科学玩游戏", "scores": { "platinum_hunter": 2 } },
+        { "key": "C", "text": "键位全改过、配置文件比游戏本体还大、启动参数加了三行——不知道哪行有用但不敢删", "scores": { "bug_conjurer": 2 } }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "游戏里你最受不了什么？",
+      "options": [
+        { "key": "A", "text": "队友不按版本答案选人。T0不选选T5？你是来玩游戏的还是来做慈善的？", "scores": { "score_slave": 2 } },
+        { "key": "B", "text": "过场动画不能跳过——不是不爱看，是想在'最适合'的时候看。现在先存着", "scores": { "archaeologist": 2 } },
+        { "key": "C", "text": "萌新没人带还被骂。你知道吗，每一个被骂退坑的萌新，我都少了一个可以帮的人", "scores": { "game_nanny": 2 } }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "朋友安利你一款你完全没兴趣的游戏，你？",
+      "options": [
+        { "key": "A", "text": "先查一下这游戏的社区风评——主要是看喷子多不多，喷点多不多，有没有发挥空间", "scores": { "pressure_monster": 2 } },
+        { "key": "B", "text": "下载 → 看新手攻略 → 做Excel规划最优开局路线 → 朋友已经退坑了", "scores": { "cyber_donkey": 2 } },
+        { "key": "C", "text": "买了但不玩。朋友问就说'入库了'——买游戏本身就是在玩游戏", "scores": { "afk_immortal": 2 } }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "你卡关了/被Boss暴打，第一反应是？",
+      "options": [
+        { "key": "A", "text": "沉默。打开三个攻略视频同时看，逐帧对Boss技能轴，画一张时间表贴在屏幕旁边", "scores": { "score_slave": 2 } },
+        { "key": "B", "text": "这不对劲。不是我的问题，是这个Boss的受击判定有Bug。录下来，逐帧分析，发论坛", "scores": { "bug_conjurer": 2 } },
+        { "key": "C", "text": "懂了，是物资不够。回去再做50瓶大回复药、30个Buff食物、修一遍所有装备——明天再来打（明天继续囤）", "scores": { "hamster": 2 } }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "游戏里有人喊'有没有人能帮一下'",
+      "options": [
+        { "key": "A", "text": "秒回'坐标发我'，传送过去，手把手教到他彻底会为止。教完他问我为什么对他这么好", "scores": { "game_nanny": 2 } },
+        { "key": "B", "text": "帮他之前先看他资料——奖杯完成度、装备、游戏时长。评估一下这人值不值得带", "scores": { "platinum_hunter": 2 } },
+        { "key": "C", "text": "不回。但默默点开他装备栏——'这都没有？充点钱不就完了吗，至于在这喊？'", "scores": { "whale": 2 } }
+      ]
+    },
+    {
+      "id": 11,
+      "text": "游戏版本大更新，你最兴奋的是？",
+      "options": [
+        { "key": "A", "text": "数值改动！哪些被削了哪些加强了——主要是为了第一时间在公频嘲笑'还玩XX？没看更新公告吧'", "scores": { "pressure_monster": 2 } },
+        { "key": "B", "text": "新外观新皮肤！终于可以把衣橱里那套压箱底的搭配换成当季新款了", "scores": { "afk_immortal": 2 } },
+        { "key": "C", "text": "新地图！老地图的每一寸我都舔过了，终于有新草皮可以闻了", "scores": { "wanderer": 2 } }
+      ]
+    },
+    {
+      "id": 12,
+      "text": "你的背包又又又满了，怎么办？",
+      "options": [
+        { "key": "A", "text": "每样留一个，剩下的打开背包盯着它们看五分钟，选出'最不重要'的几件含泪丢弃", "scores": { "hamster": 2 } },
+        { "key": "B", "text": "全卖掉换资源。背包满说明垃圾太多——垃圾的定义是'不影响奖杯进度的东西'", "scores": { "platinum_hunter": 2 } },
+        { "key": "C", "text": "建小号当仓库，每个小号分工明确：一号存材料二号存装备三号存外观——朋友说我该去管仓库", "scores": { "cyber_donkey": 2 } }
+      ]
+    },
+    {
+      "id": 13,
+      "text": "和朋友一起玩的时候，你的角色是？",
+      "options": [
+        { "key": "A", "text": "战术指挥官。'等一下先别开，我看看阵容和地图——C位选这个版本的T0，辅助带这两个技能'" , "scores": { "cyber_donkey": 2 } },
+        { "key": "B", "text": "队伍的隐形守护者。选了辅助/奶妈，确保每个人血条健康——虽然自己的输出面板惨不忍睹但你们活着就是我最大的输出", "scores": { "game_nanny": 2 } },
+        { "key": "C", "text": "气氛组。选了个版本胜率37%的角色，在语音里放《好运来》，并坚信这把能赢是因为我BGM选得好", "scores": { "chaos_gremlin": 2 } }
+      ]
+    },
+    {
+      "id": 14,
+      "text": "你发现游戏里有一个奇怪的东西（诡异建筑/隐藏符号/不对劲的NPC）",
+      "options": [
+        { "key": "A", "text": "截图→发社区→写分析帖：'结合世界观，这个符号可能指向未公开的DLC内容'（附参考文献3篇）", "scores": { "archaeologist": 2 } },
+        { "key": "B", "text": "爬上去/跳进去/炸开它/用技能穿模——如果进不去说明我的测试方法还不够全面", "scores": { "bug_conjurer": 2 } },
+        { "key": "C", "text": "标记一下，绕路过去看看——虽然走过去后发现只是张贴图，但路上的风景值得", "scores": { "wanderer": 2 } }
+      ]
+    },
+    {
+      "id": 15,
+      "text": "游戏里有一个隐藏成就/彩蛋，你知道它的存在但还没触发",
+      "options": [
+        { "key": "A", "text": "开三个攻略网页对照，严格按照步骤执行——精确到站位、时间、天气。触发条件没写全？那就穷举", "scores": { "bug_conjurer": 2 } },
+        { "key": "B", "text": "不急，随缘。哪天路过顺手触发了就当惊喜，没触发也无所谓——又不是KPI", "scores": { "chaos_gremlin": 2 } },
+        { "key": "C", "text": "先把触发条件所有可能用到的道具都囤一份——万一需要99个某样东西，我现在就开始刷", "scores": { "hamster": 2 } }
+      ]
+    },
+    {
+      "id": 16,
+      "text": "周末下午，你打开游戏。三个小时后你最有可能是？",
+      "options": [
+        { "key": "A", "text": "Rank上了两段，期间举报了4个队友、屏蔽了7个人、在聊天框输出了一篇小作文——充实的一天", "scores": { "pressure_monster": 2 } },
+        { "key": "B", "text": "帮一个萌新从入门带到了能独立打本，他加我好友说'大佬以后还能找你吗'——比上分开心", "scores": { "game_nanny": 2 } },
+        { "key": "C", "text": "抽了新出的限定角色/皮肤，全服第47个拥有的。抽完在主城站了半小时给大家欣赏，然后下线", "scores": { "whale": 2 } }
+      ]
+    },
+    {
+      "id": 17,
+      "text": "你在游戏里被对面嘲讽/虐了",
+      "options": [
+        { "key": "A", "text": "查他战绩，找他的漏洞，在所有人频道逐条反驳——不是生气，是摆事实讲道理", "scores": { "pressure_monster": 2 } },
+        { "key": "B", "text": "加入他的嘲讽，自黑一波，顺便加他好友——'哥们你这操作怎么练的教教我'。敌意消解术", "scores": { "chaos_gremlin": 2 } },
+        { "key": "C", "text": "沉默。换小号。下一局排到他——选辅助，全程不给他加血。君子报仇，十分钟不晚", "scores": { "game_nanny": 2 } }
+      ]
+    },
+    {
+      "id": 18,
+      "text": "你游戏里最常待的地方是？",
+      "options": [
+        { "key": "A", "text": "排位大厅/竞技匹配界面。不是在打Rank就是在排Rank的路上", "scores": { "score_slave": 2 } },
+        { "key": "B", "text": "地图边缘、山顶、海岸线——一切地图制作者觉得'没人会来这里'的地方", "scores": { "wanderer": 2 } },
+        { "key": "C", "text": "主城广场C位，穿着当季最新外观。不是在挂机，是在做'视觉公益'——让大家看看这季新皮肤实物效果", "scores": { "afk_immortal": 2 } }
+      ]
+    },
+    {
+      "id": 19,
+      "text": "有个限定/绝版物品要绝版了，你？",
+      "options": [
+        { "key": "A", "text": "已经买了。在'限定'两个字出现的那一秒。没有任何犹豫。拥有即正义", "scores": { "whale": 2 } },
+        { "key": "B", "text": "先研究这东西能不能被Bug复制/存档回溯/交易钻空子——不是不想买，是想知道有没有'更聪明'的获取方式", "scores": { "bug_conjurer": 2 } },
+        { "key": "C", "text": "评估：这东西对效率有提升吗？能让我每天少肝10分钟吗？不能的话，绝版就绝版", "scores": { "cyber_donkey": 2 } }
+      ]
+    },
+    {
+      "id": 20,
+      "text": "你反复玩同一款游戏（几百上千小时）的最大原因是？",
+      "options": [
+        { "key": "A", "text": "这个游戏的世界观有太多还没挖掘的东西了——NPC的每一句对话都是一块拼图，我还没拼完", "scores": { "archaeologist": 2 } },
+        { "key": "B", "text": "Rank可以一直打啊，这个分段还没到我的上限。等到了服务器前十再说'通关'", "scores": { "score_slave": 2 } },
+        { "key": "C", "text": "这个社区的玩家太有意思了，每天上线都能遇到新朋友。游戏内容？那是背景板", "scores": { "afk_immortal": 2 } }
+      ]
+    },
+    {
+      "id": 21,
+      "text": "你的'梦中情游'更接近哪种描述？",
+      "options": [
+        { "key": "A", "text": "有一套极其完善的成就/奖杯系统，而且奖杯的名字起得有诗意——'在月光下独自击败最后的龙'这种", "scores": { "platinum_hunter": 2 } },
+        { "key": "B", "text": "物理引擎极其真实，地图边界以外还有地图，每一个墙角都值得测试——并且开发商会认真看我的Bug报告", "scores": { "bug_conjurer": 2 } },
+        { "key": "C", "text": "有一整套完美的限定外观体系，每一季都有新设计，而且——重点是——限定就是限定，永不返场", "scores": { "whale": 2 } }
+      ]
+    },
+    {
+      "id": 22,
+      "text": "你觉得自己在游戏里最大的'毛病'是？",
+      "options": [
+        { "key": "A", "text": "队友都说我话太多。但我觉得这不是毛病——你们要是打得没问题我会说话吗？", "scores": { "pressure_monster": 2 } },
+        { "key": "B", "text": "看到路边有本书/石碑/纸条就必须停下来读。朋友已经在下一个区域等了20分钟了", "scores": { "archaeologist": 2 } },
+        { "key": "C", "text": "无法拒绝任何人的求助。上次为了帮一个陌生萌新打本，鸽了自己公会的团本——会长已经三天没理我了", "scores": { "game_nanny": 2 } }
+      ]
+    },
+    {
+      "id": 23,
+      "text": "你的游戏ID/个人签名更接近哪种风格？",
+      "options": [
+        { "key": "A", "text": "简洁、可辨识、带点压迫感。比如单字ID或职业选手式命名——让人在加载界面看到就觉得'这局稳了/悬了'", "scores": { "score_slave": 2 } },
+        { "key": "B", "text": "整活专用。上个月叫'今天也不想上班'，这个月叫'你刚刚是不是在看我'。签名栏是一个冷笑话", "scores": { "chaos_gremlin": 2 } },
+        { "key": "C", "text": "引用了游戏世界观里的一句台词或一个地名——别人看不懂没关系，看得懂的就是知己", "scores": { "archaeologist": 2 } }
+      ]
+    },
+    {
+      "id": 24,
+      "text": "对你来说，一个游戏'打完了'意味着什么？",
+      "options": [
+        { "key": "A", "text": "故事落幕了。制作人员名单滚完的那一刻，我坐在屏幕前发了一会呆。然后开始写感想", "scores": { "archaeologist": 2 } },
+        { "key": "B", "text": "白金/全成就，奖杯列表100%。弹出最后一个白金奖杯的那一秒——这个游戏才真正'属于我'了", "scores": { "platinum_hunter": 2 } },
+        { "key": "C", "text": "地图全开、隐藏全清、每一个角落都留下过我的足迹。'这里我来过，那里我也去过'——截图文件夹为证", "scores": { "wanderer": 2 } }
+      ]
+    }
+  ]
+}
