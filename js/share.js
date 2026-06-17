@@ -17,9 +17,15 @@
   /* --- Public: generate poster from result payload --- */
   function generatePoster() {
     var p = getPayload();
+    // Fall back to URL hash for direct gallery links
     if (!p) {
-      alert('请先完成测试再来生成海报。');
-      return;
+      var hash = window.location.hash.replace('#', '');
+      if (hash) {
+        p = makeVirtualPayload(hash);
+      } else {
+        alert('请先完成测试再来生成海报。');
+        return;
+      }
     }
 
     loadCharacters().then(function (chars) {
@@ -412,6 +418,18 @@
 
   function getHomeUrl() {
     return window.location.origin + window.location.pathname.replace(/result\.html$/, 'index.html');
+  }
+
+  function makeVirtualPayload(type) {
+    return {
+      type: type,
+      scores: {},
+      maxScore: 0,
+      severityPct: 0,
+      severityLabel: '边缘',
+      bank: 'direct',
+      timestamp: Date.now()
+    };
   }
 
   function generateQRImgTag() {

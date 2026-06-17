@@ -36,6 +36,7 @@
   };
 
   var container = document.getElementById('resultRoot');
+  var _currentLabel = '';  // cached for share text
 
   /* --- Init --- */
   function init() {
@@ -120,6 +121,7 @@
 
   /* --- Render: Single Type --- */
   function renderSingle(ch, p) {
+    _currentLabel = ch.label;
     var sevTip = SEVERITY_LABELS[p.severityLabel] || '';
     var rarityText = RARITY_LABELS[ch.rarity] || '';
     var nemesis = getNemesis(ch);
@@ -192,6 +194,7 @@
 
   /* --- Render: Dual Personality --- */
   function renderDual(chA, chB, p) {
+    _currentLabel = chA.label + ' × ' + chB.label;
     var html = '';
 
     html += '<div class="result__header">';
@@ -241,28 +244,22 @@
 
   /* --- Actions --- */
   function renderActions(p) {
-    var isDirect = p.bank === 'direct';
     var shareText = buildShareText();
     var h = '';
 
     h += '<div class="result__actions">';
 
-    if (!isDirect) {
-      // Copy text
-      h += '<button class="btn-cta" id="btnCopy" style="font-size: var(--text-sm); margin-bottom: var(--space-sm);">复制分享文案</button>';
+    // Copy text
+    h += '<button class="btn-cta" id="btnCopy" style="font-size: var(--text-sm); margin-bottom: var(--space-sm);">复制分享文案</button>';
 
-      // Web Share
-      h += '<button class="btn-cta" id="btnShare" style="font-size: var(--text-sm); margin-bottom: var(--space-sm); display: none;">一键分享</button>';
+    // Web Share
+    h += '<button class="btn-cta" id="btnShare" style="font-size: var(--text-sm); margin-bottom: var(--space-sm); display: none;">一键分享</button>';
 
-      // Poster
-      h += '<br><button class="btn-cta" id="btnPoster" style="font-size: var(--text-sm); margin-bottom: var(--space-lg);">生成分享海报</button>';
+    // Poster
+    h += '<br><button class="btn-cta" id="btnPoster" style="font-size: var(--text-sm); margin-bottom: var(--space-lg);">生成分享海报</button>';
 
-      // Retake
-      h += '<br><a href="test.html" class="text-dim" style="font-size: var(--text-xs); text-decoration: underline; text-underline-offset: 2px;">重新诊断</a>';
-    } else {
-      // Direct link from gallery — minimal actions
-      h += '<a href="test.html" class="btn-cta" style="font-size: var(--text-sm); display: inline-flex;">开始诊断</a>';
-    }
+    // Retake
+    h += '<br><a href="test.html" class="text-dim" style="font-size: var(--text-xs); text-decoration: underline; text-underline-offset: 2px;">重新诊断</a>';
 
     // Types gallery link
     h += '<span style="margin: 0 var(--space-sm); color: var(--color-border);">|</span>';
@@ -279,17 +276,9 @@
   }
 
   function buildShareText() {
-    var p = getPayload();
-    if (!p) return '';
-
-    var typeIds = p.type.split(',');
-    var ch = null;
-    // Try to load from the already-fetched characters
-    // For simplicity, use type label from URL hash
-    var label = typeIds.join(' / ');
-    var hash = window.location.hash.replace('#', '');
-
-    return '测了，我是 ' + label + '。我的游戏人格口头禅是：……你也来测测？' + window.location.origin + window.location.pathname.replace('result.html', '');
+    var label = _currentLabel || '未知';
+    var url = window.location.origin + window.location.pathname.replace('result.html', '');
+    return '测了，我是 ' + label + '。你也来测测？ ' + url;
   }
 
   function attachShareHandlers(shareText) {
