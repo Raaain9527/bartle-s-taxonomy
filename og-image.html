@@ -203,6 +203,31 @@
 
     var btn = document.getElementById('btnCapture');
     var card = document.getElementById('ogCard');
+    var imgPreloaded = false;
+
+    // Preload and convert the Xiaohei image to data URL so file:// works
+    var xiaoheiImg = card.querySelector('.og-xiaohei');
+    if (xiaoheiImg) {
+      var preloader = new Image();
+      preloader.crossOrigin = 'anonymous';
+      preloader.onload = function () {
+        try {
+          var c = document.createElement('canvas');
+          c.width = preloader.naturalWidth;
+          c.height = preloader.naturalHeight;
+          var ctx = c.getContext('2d');
+          ctx.drawImage(preloader, 0, 0);
+          xiaoheiImg.src = c.toDataURL('image/jpeg', 0.92);
+        } catch (_) { /* keep original src */ }
+        imgPreloaded = true;
+      };
+      preloader.onerror = function () {
+        imgPreloaded = true;
+      };
+      preloader.src = xiaoheiImg.src;
+    } else {
+      imgPreloaded = true;
+    }
 
     btn.addEventListener('click', function () {
       if (typeof html2canvas === 'undefined') {
@@ -210,40 +235,56 @@
         return;
       }
 
+      if (window.location.protocol === 'file:') {
+        alert('请通过 HTTP 服务器打开此页面。\n\n在项目目录下运行：\npython -m http.server 8080\n\n然后访问 http://localhost:8080/og-image.html');
+        return;
+      }
+
       btn.textContent = '生成中…';
       btn.disabled = true;
 
-      html2canvas(card, {
-        width: 1200,
-        height: 630,
-        scale: 1,
-        useCORS: true,
-        backgroundColor: '#FEFEFE',
-        onclone: function (clonedDoc) {
-          // Remove any scroll-related artifacts
-          var el = clonedDoc.getElementById('ogCard');
-          if (el) {
-            el.style.transform = 'none';
+      function doCapture() {
+        html2canvas(card, {
+          width: 1200,
+          height: 630,
+          scale: 1,
+          backgroundColor: '#FEFEFE',
+          onclone: function (clonedDoc) {
+            var el = clonedDoc.getElementById('ogCard');
+            if (el) {
+              el.style.transform = 'none';
+            }
           }
-        }
-      }).then(function (canvas) {
-        canvas.toBlob(function (blob) {
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a');
-          a.href = url;
-          a.download = 'og-image.png';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
+        }).then(function (canvas) {
+          canvas.toBlob(function (blob) {
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'og-image.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            btn.textContent = '下载 PNG (1200×630)';
+            btn.disabled = false;
+          }, 'image/png');
+        }).catch(function (err) {
+          alert('生成失败：' + err.message);
           btn.textContent = '下载 PNG (1200×630)';
           btn.disabled = false;
-        }, 'image/png');
-      }).catch(function (err) {
-        alert('生成失败：' + err.message);
-        btn.textContent = '下载 PNG (1200×630)';
-        btn.disabled = false;
-      });
+        });
+      }
+
+      if (!imgPreloaded) {
+        var check = setInterval(function () {
+          if (imgPreloaded) {
+            clearInterval(check);
+            doCapture();
+          }
+        }, 100);
+      } else {
+        doCapture();
+      }
     });
   })();
   </script>

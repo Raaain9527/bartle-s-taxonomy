@@ -81,7 +81,6 @@
       width: POSTER_W,
       height: POSTER_H,
       scale: 1,
-      useCORS: true,
       backgroundColor: '#FEFEFE'
     }).then(function (canvas) {
       document.body.removeChild(poster);
